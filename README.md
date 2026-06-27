@@ -191,3 +191,5 @@ The distribution of the training points is shown below.
     </td>
   </tr>
 </table>
+
+The symbols indicate the experimental measurements while the solid lines represent the simulation conducted via the present trained models. 
