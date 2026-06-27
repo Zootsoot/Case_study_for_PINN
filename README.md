@@ -87,12 +87,6 @@ $$
 
 for air at 298 K.
 
-The governing equations used in the PINN formulation are summarized below.
-
-#### Governing momentum and continuity equations used in the PINN formulation.
-
-![Governing equations](figures/governing_equations.png)
-
 ### Neural Network Structure
 
 The PINN model takes the spatial and temporal coordinates as inputs:
@@ -119,7 +113,7 @@ The model structure is illustrated below.
 
 #### Neural network structure used for predicting the velocity components, density, and pressure.
 
-![Neural network structure](figures/nn_str.png)
+![Neural network structure](figs/nn_str.png)
 
 ### Training Scheme
 
@@ -131,14 +125,69 @@ The overall training workflow is shown below.
 
 #### Training scheme of the physics-informed neural network.
 
-![Training scheme](figures/training_scheme.png)
+![Training scheme](figs/training_scheme.png)
 
 ### Residual and Collocation Point Distribution
 
-The residual and collocation points are distributed within the computational domain to enforce the governing equations at selected spatial and temporal locations. These points are used to evaluate the equation residuals during training and guide the network toward physically consistent solutions.
+The residual and collocation points are distributed within the computational domain to enforce the experimental collections and governing equations at selected spatial and temporal locations. These points are used to evaluate the equation residuals during training and guide the network toward physically consistent solutions. As provided in the official supplimentary materials, there are 304 residual points where the experimental results are measured. Additionally, 2345 collocation points are added to learn the governing PDEs. 
 
 The distribution of the training points is shown below.
 
 #### Distribution of residual and collocation points used for PINN training.
 
-![Training points distribution](figures/training_points_distribution.png)
+<img src="figs/training_points_distribution.png" alt="Training points distribution" width="600">
+
+## Preliminary Results
+
+### Countours of velocity magnitudes
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="figs/N29S054_vel_mag.png" alt="N29S054 velocity magnitude" width="350"><br>
+      <b>(a) N29S054, low swirl</b>
+    </td>
+    <td align="center">
+      <img src="figs/N16S159_vel_mag.png" alt="N16S159 velocity magnitude" width="350"><br>
+      <b>(b) N16S159, high swirl</b>
+    </td>
+  </tr>
+</table>
+
+### Velocity Profiles in N29S054
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="figs/N29S054_Xval.png" alt="N29S054 radial velocity" width="300"><br>
+      <b>(a) Radial velocity</b>
+    </td>
+    <td align="center">
+      <img src="figs/N29S054_Yval.png" alt="N29S054 rotational velocity" width="300"><br>
+      <b>(b) Rotational velocity</b>
+    </td>
+    <td align="center">
+      <img src="figs/N29S054_Zval.png" alt="N29S054 axial velocity" width="300"><br>
+      <b>(c) Axial velocity</b>
+    </td>
+  </tr>
+</table>
+
+### Velocity Profiles in N16S159
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="figs/N16S159_x_velocity.png" alt="N16S159 radial velocity" width="300"><br>
+      <b>(a) Radial velocity</b>
+    </td>
+    <td align="center">
+      <img src="figs/N16S159_y_velocity.png" alt="N16S159 rotational velocity" width="300"><br>
+      <b>(b) Rotational velocity</b>
+    </td>
+    <td align="center">
+      <img src="figs/N16S159_z_velocity.png" alt="N16S159 axial velocity" width="300"><br>
+      <b>(c) Axial velocity</b>
+    </td>
+  </tr>
+</table>
